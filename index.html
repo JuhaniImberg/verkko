@@ -6,45 +6,62 @@
         <link rel="stylesheet" href="style.css" type="text/css" />
     </head>
     <body>
-        <div class="content">
-            <div>
-                <h1>Verkkokuvaaja</h1>
-                <p>Optimoitu noin sadalle solmulle ja tuhannelle kaarelle. Solmuja voi siirtää hiirellä.</p>
-                <div>
-                    <textarea id="data">
-Liisa -- Maria -- Sara -- Liisa -- Kalle
-Maria -- Leevi
-                    </textarea>
-                </div>
-                <div>
-                    <button id="updatebutton">Piirrä</button>
-                </div>
-                <span class="sliderdescription">Tarkkuus:</span><input type="range" id="delta_t" class="slider" value="20" step="0.1" />
-                <br>
-                <span class="sliderdescription">Tiukkuus:</span><input type="range" id="tightness" class="slider" step="0.1" />
-                <br>
-                <label for="emphasize-important-vertices">Korosta tärkeitä solmuja:</label>
-                <input type="checkbox" id="emphasize-important-vertices" />
-                <br>
-                <label for="hide-some-edges">Piilota osa viivoista:</label>
-                <input type="checkbox" id="hide-some-edges" />
-                <br>
-                <label for="stopped">Pysäytetty:</label>
-                <input type="checkbox" id="stopped" />
-                <br>
-                <div id="wrapper">
-                    <canvas id="graafi" width="900" height="750">Selaimesi ei tue &lt;canvas&gt;-elementti&amul;.</canvas>
-                    <div id="vertex-info"></div>
-                </div>
-                <div>
-                    <button id="savebutton">Tallenna kuva</button>
-                </div>
-                <script src="verkko.js"></script>
-                <script src="parser.js"></script>
+        <canvas id="graafi">Selaimesi ei tue &lt;canvas&gt;-elementti&amul;.</canvas>
+        <div class="sidebar active" id="sidebar">
+            <button id="toggle-sidebar"></button>
+            <h1>Verkkokuvaaja</h1>
+
+            <textarea id="data">
+Liisa -- Maria -- Sara
+Sara -- Liisa -- Kalle
+Maria -- Leevi</textarea>
+
+            <dl>
+                <dt>Tarkkuus</dt>
+                <dd>
+                    <input type="range" id="delta_t" class="slider" value="20" step="0.1">
+                </dd>
+
+                <dt>Tiukkuus</dt>
+                <dd>
+                    <input type="range" id="tightness" class="slider" step="0.1">
+                </dd>
+
+                <dt>
+                    <label for="emphasize-important-vertices">Korosta tärkeitä solmuja</label>
+                </dt>
+                <dd>
+                    <input type="checkbox" id="emphasize-important-vertices">
+                </dd>
+
+                <dt>
+                    <label for="hide-some-edges">Piilota osa viivoista</label>
+                </dt>
+                <dd>
+                    <input type="checkbox" id="hide-some-edges">
+                </dd>
+
+                <dt>
+                    <label for="stopped">Pysäytetty</label>
+                </dt>
+                <dd>
+                    <input type="checkbox" id="stopped">
+                </dd>
+            </dl>
+
+            <div id="wrapper">
+                
+                <div id="vertex-info"></div>
             </div>
+            <div>
+                <button id="savebutton">Tallenna kuva</button>
+            </div>
+            
             <footer>
                 &copy; 2015 Felix Bade &middot; <a href="https://github.com/felixbade/verkko">Lähdekoodi</a>
             </footer>
         </div>
+        <script src="parser.js"></script>
+        <script src="verkko.js"></script>
     </body>
 </html>

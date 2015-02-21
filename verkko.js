@@ -4,6 +4,7 @@ var canvas = document.getElementById("graafi");
 var context = canvas.getContext("2d");
 var vertexInfo = document.getElementById("vertex-info");
 var dataInputElement = document.getElementById("data");
+var sidebar = document.querySelector("#sidebar");
 
 context.lineWidth = 1.5;
 var maxForce = 0.01;
@@ -11,6 +12,7 @@ var maxForce = 0.01;
 var radius, vertexXs, vertexYs, vertexNames, vertexNeighbours, vertexConnectsOthers, edges, numberOfVertices, graphCenterX, graphCenterY, delta_t, pull, push, dx, dy;
 
 function initialize() {
+    resizeCanvas();
     clearCanvas();
     parseInput();
     tick();
@@ -195,6 +197,11 @@ function updateTightness() {
 
 // Rendering stuff
 
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
 function reDraw() {
     clearCanvas();
     if (!isMouseDown) {
@@ -326,8 +333,7 @@ function drawVertex(vertex) {
 }
 
 function clearCanvas() {
-    context.fillStyle = "white";
-    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 // Mouse stuff
@@ -404,18 +410,26 @@ function showLabel(text, x, y) {
     vertexInfo.style.top = y + 'px';
 }
 
+function toggleSidebar() {
+    sidebar.classList.toggle("active");
+}
+
 // These must be in the end :(
 
-document.getElementById("updatebutton").onclick = initialize;
+//document.getElementById("updatebutton").onclick = initialize;
+dataInputElement.oninput = initialize;
 document.getElementById("delta_t").oninput = updateDeltaT;
 document.getElementById("tightness").oninput = updateTightness;
 document.getElementById("stopped").onclick = tick;
 document.getElementById("hide-some-edges").onclick = reDraw;
 document.getElementById("emphasize-important-vertices").onclick = reDraw;
 document.getElementById("savebutton").onclick = save;
+document.querySelector("#toggle-sidebar").onclick = toggleSidebar;
+document.body.onresize = resizeCanvas;
 
 updateDeltaT();
 updateTightness();
+initialize();
 
 canvas.addEventListener("mousedown", onMouseDown, true);
 canvas.addEventListener("mouseup", onMouseUp, true);
