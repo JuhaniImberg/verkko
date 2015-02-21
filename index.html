@@ -7,15 +7,12 @@
     </head>
     <body>
         <canvas id="graafi">Selaimesi ei tue &lt;canvas&gt;-elementti&amul;.</canvas>
-        <div class="sidebar active" id="sidebar">
-            <button id="toggle-sidebar"></button>
-            <h1>Verkkokuvaaja</h1>
-
-            <textarea id="data">
+        <textarea id="data">
 Liisa -- Maria -- Sara
 Sara -- Liisa -- Kalle
 Maria -- Leevi</textarea>
-
+        <div class="sidebar active" id="sidebar">
+            <button id="toggle-sidebar"></button>
             <dl>
                 <dt>Tarkkuus</dt>
                 <dd>
@@ -49,10 +46,6 @@ Maria -- Leevi</textarea>
                 </dd>
             </dl>
 
-            <div id="wrapper">
-                
-                <div id="vertex-info"></div>
-            </div>
             <div>
                 <button id="savebutton">Tallenna kuva</button>
             </div>
@@ -61,6 +54,7 @@ Maria -- Leevi</textarea>
                 &copy; 2015 Felix Bade &middot; <a href="https://github.com/felixbade/verkko">Lähdekoodi</a>
             </footer>
         </div>
+        <div id="vertex-info"></div>
         <script src="parser.js"></script>
         <script src="verkko.js"></script>
     </body>

@@ -8,12 +8,15 @@ body
     font-family: Helvetica, Arial, Sans-Serif;
     font-size: 16px;
 
+    overflow: hidden;
+
     height: 100%;
     margin: 0;
     margin: 0;
     padding: 0;
 
     color: #333;
+    background-color: whitesmoke;
 }
 
 canvas
@@ -24,17 +27,24 @@ canvas
 
     width: 100%;
     height: 100%;
-
-    background-color: #f2f2f2;
 }
 
 textarea
 {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
-    width: 100%;
-    height: 4rem;
+    width: 280px;
+    height: 6rem;
+
+    border: none;
+    border-radius: 2px;
+    background-color: whitesmoke;
+    box-shadow: 0 2px 6px #999;
 }
 
 h1
@@ -57,10 +67,6 @@ footer
 {
     font-size: 14px;
 
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
     text-align: center;
 
     color: #777;
@@ -75,17 +81,19 @@ footer > a
 {
     position: absolute;
     top: 8px;
+    right: 8px;
     bottom: 8px;
-    left: 8px;
 
     width: 280px;
     padding: 8px;
-    padding-right: 24px;
+    padding-left: 24px;
 
-    transition: all 1s ease-in-out;
-    transform: translate(-300px, 0px);
+    transition: all .5s ease-in-out;
+    transform: translate(300px, 0px);
 
-    background-color: #ddd7cb;
+    border-radius: 2px;
+    background-color: whitesmoke;
+    box-shadow: 0 2px 6px #999;
 }
 
 .sidebar.active
@@ -99,7 +107,7 @@ footer > a
 
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
 
     width: 16px;
     height: 100%;
@@ -107,18 +115,18 @@ footer > a
     padding: 0;
 
     border: none;
-    border-left: thin solid #333;
+    border-right: thin solid #333;
     background-color: rgba(0, 0, 0, .1);
 }
 
 #toggle-sidebar:after
 {
-    content: '>>';
+    content: '<<';
 }
 
 .active #toggle-sidebar:after
 {
-    content: '<<';
+    content: '>>';
 }
 
 #vertex-info
