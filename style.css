@@ -83,8 +83,7 @@ footer > a
     top: 8px;
     right: 8px;
 
-    width: 240px;
-    padding: 8px;
+    text-align: right;
 }
 
 #vertex-info
@@ -97,4 +96,43 @@ footer > a
 
     border-radius: 6px;
     background-color: rgba(220, 220, 220, .8);
+}
+
+.toggle-combo
+{
+    display: inline-block;
+
+    padding: 4px;
+
+    border-radius: 2px;
+    box-shadow: 0 2px 6px #999;
+}
+
+.toggle-combo > input
+{
+    position: absolute;
+
+    visibility: hidden;
+
+    margin-left: -999999px;
+}
+
+.toggle-combo > label
+{
+    display: inline;
+
+    padding: 1px;
+
+    cursor: pointer;
+    -webkit-user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+
+    outline: none;
+}
+
+.toggle-combo > input:checked + label
+{
+    border-bottom: 2px solid #333;
 }
