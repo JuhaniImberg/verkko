@@ -11,49 +11,12 @@
 Liisa -- Maria -- Sara
 Sara -- Liisa -- Kalle
 Maria -- Leevi</textarea>
-        <div class="sidebar active" id="sidebar">
-            <button id="toggle-sidebar"></button>
-            <dl>
-                <dt>Tarkkuus</dt>
-                <dd>
-                    <input type="range" id="delta_t" class="slider" value="20" step="0.1">
-                </dd>
 
-                <dt>Tiukkuus</dt>
-                <dd>
-                    <input type="range" id="tightness" class="slider" step="0.1">
-                </dd>
-
-                <dt>
-                    <label for="emphasize-important-vertices">Korosta tärkeitä solmuja</label>
-                </dt>
-                <dd>
-                    <input type="checkbox" id="emphasize-important-vertices">
-                </dd>
-
-                <dt>
-                    <label for="hide-some-edges">Piilota osa viivoista</label>
-                </dt>
-                <dd>
-                    <input type="checkbox" id="hide-some-edges">
-                </dd>
-
-                <dt>
-                    <label for="stopped">Pysäytetty</label>
-                </dt>
-                <dd>
-                    <input type="checkbox" id="stopped">
-                </dd>
-            </dl>
-
-            <div>
-                <button id="savebutton">Tallenna kuva</button>
-            </div>
-            
-            <footer>
-                &copy; 2015 Felix Bade &middot; <a href="https://github.com/felixbade/verkko">Lähdekoodi</a>
-            </footer>
+        <div class="sidebar" id="sidebar">
+            <label for="emphasize-important-vertices">Korosta tärkeitä solmuja</label>
+            <input type="checkbox" id="emphasize-important-vertices">
         </div>
+
         <div id="vertex-info"></div>
         <script src="parser.js"></script>
         <script src="verkko.js"></script>

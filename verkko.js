@@ -4,7 +4,6 @@ var canvas = document.getElementById("graafi");
 var context = canvas.getContext("2d");
 var vertexInfo = document.getElementById("vertex-info");
 var dataInputElement = document.getElementById("data");
-var sidebar = document.querySelector("#sidebar");
 
 context.lineWidth = 1.5;
 var maxForce = 0.01;
@@ -27,7 +26,7 @@ function tick() {
 }
 
 function isStopped() {
-    return document.getElementById("stopped").checked;
+    return false; // document.getElementById("stopped").checked;
 }
 
 
@@ -184,12 +183,12 @@ function setDistanceBetweenVertices(vertex1, vertex2) {
 }
 
 function updateDeltaT() {
-    var dt = document.getElementById("delta_t").value;
+    var dt = 20; //document.getElementById("delta_t").value;
     delta_t = Math.exp((50 - dt) / 10) * 100;
 }
 
 function updateTightness() {
-    var tightness = document.getElementById("tightness").value;
+    var tightness = 50; //document.getElementById("tightness").value;
     pull = Math.exp((tightness - 50) / 50) / 100;
     push = 1 / pull;
     pull /= 10; // from old code, moved here. not sure what to do about it
@@ -289,10 +288,8 @@ function setImportantStyle() {
 function shouldEdgeBeShown(edge) {
     var vertex1 = edges[edge][0];
     var vertex2 = edges[edge][1];
-    if (document.getElementById("hide-some-edges").checked) {
-        if (!vertexConnectsOthers[vertex1] && !vertexConnectsOthers[vertex2]) {
-            return false;
-        }
+    if (!vertexConnectsOthers[vertex1] && !vertexConnectsOthers[vertex2]) {
+        return false;
     }
     return true;
 }
@@ -416,15 +413,8 @@ function toggleSidebar() {
 
 // These must be in the end :(
 
-//document.getElementById("updatebutton").onclick = initialize;
 dataInputElement.oninput = initialize;
-document.getElementById("delta_t").oninput = updateDeltaT;
-document.getElementById("tightness").oninput = updateTightness;
-document.getElementById("stopped").onclick = tick;
-document.getElementById("hide-some-edges").onclick = reDraw;
 document.getElementById("emphasize-important-vertices").onclick = reDraw;
-document.getElementById("savebutton").onclick = save;
-document.querySelector("#toggle-sidebar").onclick = toggleSidebar;
 document.body.onresize = resizeCanvas;
 
 updateDeltaT();

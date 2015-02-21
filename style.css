@@ -82,51 +82,9 @@ footer > a
     position: absolute;
     top: 8px;
     right: 8px;
-    bottom: 8px;
 
     width: 240px;
     padding: 8px;
-    padding-left: 24px;
-
-    transition: transform .5s ease-in-out;
-    transform: translate(260px, 0px);
-
-    border-radius: 2px;
-    background-color: whitesmoke;
-    box-shadow: 0 2px 6px #999;
-}
-
-.sidebar.active
-{
-    transform: translate(0px, 0px);
-}
-
-#toggle-sidebar
-{
-    font-size: 8px;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 16px;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-
-    border: none;
-    border-right: thin solid #333;
-    background-color: rgba(0, 0, 0, .1);
-}
-
-#toggle-sidebar:after
-{
-    content: '<<';
-}
-
-.active #toggle-sidebar:after
-{
-    content: '>>';
 }
 
 #vertex-info
