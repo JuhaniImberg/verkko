@@ -20,9 +20,7 @@ function initialize() {
 function tick() {
     simulateGraphForces();
     reDraw();
-    if (!isStopped()) {
-        setTimeout(tick, 20); // timeout makes the simulation visible before it is stopped
-    }
+    requestAnimationFrame(tick);
 }
 
 function isStopped() {
@@ -280,8 +278,8 @@ function setNonImportantStyle() {
 }
 
 function setImportantStyle() {
-    context.strokeStyle = "#666";
-    context.fillStyle = "#666";
+    context.strokeStyle = "#444";
+    context.fillStyle = "#444";
     radius = 6;
 }
 
